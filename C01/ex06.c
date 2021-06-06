@@ -4,9 +4,10 @@ int ft_strlen(char *str);
 
 int main(void)
 {
-	char str[] = "bla";
+	char str[] = "";
+	char str1[] = "alguma";
 
-	if (ft_strlen(str) == 3)
+	if (ft_strlen(str1) == 0 && ft_strlen(str1) == 6)
 	{
 		printf("OK!");
 	}
