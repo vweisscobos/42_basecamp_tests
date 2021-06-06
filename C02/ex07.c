@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdio.h>
 
 char *ft_strupcase(char *str);
 
