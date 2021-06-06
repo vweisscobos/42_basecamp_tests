@@ -14,8 +14,12 @@ $> ~/<nome-repo-testes>/<nome-lista>/run.sh <path-repo-a-ser-testado>
 ex:
 você clonou este repositório num diretório chamado `testes` e o seu repositório da lista C01 se chama `repo-c01`. Você deve rodar:
 ```bash
-$> ~/testes/c01/run.sh ~/repo-c01
+$> ~/testes/C01/run.sh ~/repo-c01
 ```
+
+### listas disponíveis:
+- C01
+- C02
 
 ## Limitações
 * Os testes não são exaustivos e você não deve confiar apenas neles para verificar suas soluções. Ao invés disso, essa bateria de testes se propõe a evitar problemas mais triviais.
