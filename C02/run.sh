@@ -9,6 +9,8 @@ files=(
 	"ex07/ft_strupcase.c"
 	"ex08/ft_strlowcase.c"
 	"ex09/ft_strcapitalize.c"
+	"ex10/ft_strlcpy.c"
+	"ex11/ft_putstr_with_non_printable.c"
 )
 
 curr_path=$(realpath $0 | sed "s/\/run.sh$//")
