@@ -5,15 +5,17 @@ unsigned int ft_strlcpy(char *dest, char *src, unsigned int size);
 int main(void)
 {
 	char dest[4];
-	char src[] = "bla";
+	char src[] = "coisaqualquer";
+	int size;
 
-	ft_strlcpy(dest, src, sizeof(src));
-
+	size = ft_strlcpy(dest, src, sizeof(dest));
+	
 	if (
-		dest[0] == 'b'
-		&& dest[1] == 'l'
-		&& dest[2] == 'a'
-		&& dest[3] == '\0'
+		size == 13
+		&& dest[0] = 'c'
+		&& dest[1] = 'o'
+		&& dest[2] = 'i'
+		&& dest[3] = 's'
 	)
 	{
 		printf("OK!");
