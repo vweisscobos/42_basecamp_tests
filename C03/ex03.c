@@ -1,32 +1,22 @@
 #include <stdio.h>
+#include <bsd/string.h>
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb);
 
 int main(void)
 {
-	char dest[6];
-	char src[] = "def";
+	char str[7];
+	char str1[100];
+	char str2[] = "defghijk";
 
-	dest[0] = 'a';
-	dest[1] = 'b';
-	dest[2] = 'c';
+	strcpy(str, "abc");
+	strcpy(str1, "abc");
 
-	ft_strncat(dest, src, 2);
+	strncat(str, str2, 3);
+	ft_strncat(str1, str2, 3);
 
-	if (
-		dest[0] == 'a'
-		&& dest[1] == 'b'
-		&& dest[2] == 'c'
-		&& dest[3] == 'd'
-		&& dest[4] == 'e'
-		&& dest[5] == '\0'
-	)
-	{
-		printf("OK!");
-	}
-	else
-	{
-		printf("KO!");
-	}
+	printf("%s\n", str);
+	printf("%s\n", str1);
+
 	return (0);
 }

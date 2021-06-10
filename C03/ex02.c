@@ -1,25 +1,24 @@
 #include <stdio.h>
+#include <bsd/string.h>
 
 char	*ft_strcat(char *dest, char *src);
 
 int main(void)
 {
-	char dest[6];
-	char src[] = "def";
+	char src[50];
+	char src1[50];
+	char src2[] = "defghijklm";
 
-	dest[0] = 'a';
-	dest[1] = 'b';
-	dest[2] = 'c';
+	strcpy(src, "abc");
+	strcpy(src1, "abc");
 
-	ft_strcat(dest, src);
+	printf("Expected:\n");
+	printf("%s\n", ft_strcat(src, src2));
+	printf("Output:\n");
+	printf("%s\n", strcat(src1, src2));
 
 	if (
-		dest[0] == 'a'
-		&& dest[1] == 'b'
-		&& dest[2] == 'c'
-		&& dest[3] == 'd'
-		&& dest[4] == 'e'
-		&& dest[5] == 'f'
+		strcmp(src, src1) == 0
 	)
 	{
 		printf("OK!");
@@ -28,5 +27,6 @@ int main(void)
 	{
 		printf("KO!");
 	}
+
 	return (0);
 }

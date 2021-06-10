@@ -1,16 +1,18 @@
 #include <stdio.h>
+#include <bsd/string.h>
 
 int ft_strncmp(char *s1, char *s2, unsigned int n);
 
 int main(void)
 {
+	char a[] = "abc";
+	char b[] = "abcaaaa";
+
 	if (
-		ft_strncmp("algo", "alga", 3) == 0
-		&& ft_strncmp("algo", "alfo", 3) > 0
-		&& ft_strncmp("algo", "alho", 3) < 0
-		&& ft_strncmp("algo", "algo", 5) == 0
-		&& ft_strncmp("algo", "algn", 5) > 0
-		&& ft_strncmp("algo", "algp", 5) < 0
+		(strncmp(a, b, 1) == ft_strncmp(a, b, 1))
+		&& (strncmp(b, a, 4) == ft_strncmp(b, a, 4))
+		&& (strncmp(a, a, 2) == ft_strncmp(a, a, 2))
+		&& (strncmp(b, b, 5) == ft_strncmp(b, b, 5))
 	)
 	{
 		printf("OK!");
