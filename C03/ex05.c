@@ -1,47 +1,54 @@
 #include <stdio.h>
-#include <bsd/string.h>
+#include <string.h>
+#include <stdlib.h>
 
-char	*ft_strlcat(char *dest, char *src, unsigned int size);
+unsigned int 	strlcat(char *dest, char *src, unsigned int size);
+unsigned int 	ft_strlcat(char *dest, char *src, unsigned int size);
 
-int main(void)
+void			ft_strlcat_test(char *dest, char *ft_dest, char *src, unsigned int size)
 {
-	char str[50];
-	char str1[50];
-	char str2[50];
-	char str3[50];
-	char str4[] = "defghijk";
+	unsigned int	return_value;
+	unsigned int	ft_return_value;
 
-	strcpy(str, "abc");
-	strcpy(str1, "abc");
+	return_value = strlcat(dest, src, size);
+	ft_return_value = ft_strlcat(ft_dest, src, size);
+	if (return_value != ft_return_value)
+		printf("> KO, expected: %u, got: %u\n", return_value, ft_return_value);
+	else if (strcmp(dest, ft_dest) != 0)
+		printf("> KO, expected: %s, got: %s\n", dest, ft_dest);
+	else
+		printf("> OK, result: %s\n", ft_dest);
+}
 
-	strcpy(str2, "abc");
-	strcpy(str3, "abc");
+int				main(void)
+{
+	char			*src;
+	char			dest[5];
+	char			ft_dest[5];
 
-	printf("Test1:\n");
-	printf("dest: %s\n", str);
-	printf("src: %s\n", str4);
-	printf("n: %d\n", 0);
+	dest[0] = 'a';
+	dest[1] = 'b';
+	dest[2] = 'c';
+	dest[3] = 'd';
+	dest[4] = 'e';
 
-	strlcat(str, str4, sizeof(str));
-	ft_strlcat(str1, str4, sizeof(str1));
+	ft_dest[0] = 'a';
+	ft_dest[1] = 'b';
+	ft_dest[2] = 'c';
+	ft_dest[3] = 'd';
+	ft_dest[4] = 'e';
 
-	printf("Expected:\n");
-	printf("%s\n", str);
-	printf("Ouput:\n");
-	printf("%s\n", str1);
-	printf("\n");
-	printf("Test2:\n");
-	printf("dest: %s\n", str2);
-	printf("src: %s\n", str4);
-	printf("n: %d\n", 40);
-
-	strlcat(str2, str4, sizeof(str2));
-	ft_strlcat(str3, str4, sizeof(str3));
-
-	printf("Expected:\n");
-	printf("%s\n", str2);
-	printf("Ouput:\n");
-	printf("%s\n", str3);
-
+	// invalid case, dest is non null terminated in the first size - 1 bytes.
+	src = "cat";
+	ft_strlcat_test(dest, ft_dest, src, 0);
+	ft_strlcat_test(dest, ft_dest, src, 1);
+	ft_strlcat_test(dest, ft_dest, src, 4);
+	ft_strlcat_test(dest, ft_dest, src, 10);
+	// valid case, dest is null terminated in the first size - 1 bytes, modified and terminated
+	src = "ghijkl";
+	dest = strcpy(calloc(13, sizeof(char)), "abcdef");
+	ft_dest = strcpy(calloc(13, sizeof(char)), "abcdef");
+	ft_strlcat_test(dest, ft_dest, src, 8);
+	ft_strlcat_test(dest, ft_dest, src, 10);
 	return (0);
 }

@@ -1,38 +1,39 @@
 #include <stdio.h>
-#include <bsd/string.h>
+#include <stdlib.h>
+#include <string.h>
 
 char	*ft_strstr(char *str, char *to_find);
 
-int main(void)
+int	main(void)
 {
-	char str[] = "alguma coisa";
-	char to_find_1[] = "coisa";
-	char to_find_2[] = "coisaaaaa";
+	char *str;
+	char *to_find;
+	char *buff;
+	char *ft_buff;
 
-	printf("%s\n", strstr(str, ""));
-	printf("%s\n", ft_strstr(str, ""));
-
-	printf("Teste 1:\n");
-	printf("Haystack: %s\n", str);
-	printf("Needle: %s\n", to_find_1);
-	printf("Expected:\n");
-	printf("%s\n", ft_strstr(str, to_find_1));
-	printf("Output:\n");
-	printf("%s\n", strstr(str, to_find_1));
-	printf("\n");
-	printf("Teste 2:\n");
-	printf("Haystack: %s\n", str);
-	printf("Needle: %s\n", to_find_2);
-	printf("Expected:\n");
-	printf("%s\n", ft_strstr(str, to_find_2));
-	printf("Output:\n");
-	printf("%s\n", strstr(str, to_find_2));
-	printf("\n");
-	printf("Teste 3:\n");
-	printf("Haystack: %s\n", str);
-	printf("Needle: \"\"\n");
-	printf("Expected:\n");
-	printf("%s\n", strstr(str, ""));
-	printf("Output:\n");
-	printf("%s\n", ft_strstr(str, ""));
+	str = strcpy(calloc(11, sizeof(char)), "alo galera");
+	to_find = strcpy(calloc(7, sizeof(char)), "gal");
+	buff = strstr(str, to_find);
+	ft_buff = ft_strstr(str, to_find);
+	if (buff != ft_buff)
+		printf("[1] KO, substrings don't match(expected:%s, got:%s)\n", buff, ft_buff); 
+	else
+		printf("[1] OK. expected: %s result: %s\n", buff, ft_buff);
+	str = strcpy(calloc(11, sizeof(char)), "alo galera");
+	to_find = strcpy(calloc(7, sizeof(char)), "galerA");
+	buff = strstr(str, to_find);
+	ft_buff = ft_strstr(str, to_find);
+	if (buff != ft_buff)
+		printf("[2] KO, substrings don't match(expected:%s, got:%s)\n", buff, ft_buff); 
+	else
+		printf("[2] OK. expected: %s result: %s\n", buff, ft_buff);
+	str = strcpy(calloc(11, sizeof(char)), "alo galera");
+	to_find = strcpy(calloc(1, sizeof(char)), "");
+	buff = strstr(str, to_find);
+	ft_buff = ft_strstr(str, to_find);
+	if (buff != ft_buff)
+		printf("[2] KO, substrings don't match(expected:%s, got:%s)\n", buff, ft_buff); 
+	else
+		printf("[2] OK. expected: %s result: %s\n", buff, ft_buff);
+	return (0);
 }
