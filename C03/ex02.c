@@ -1,45 +1,45 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ex02.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vweiss-c <vweiss-c@student.42sp.org.br>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/05 15:14:17 by vgoncalv          #+#    #+#             */
-/*   Updated: 2021/06/10 23:45:43 by vweiss-c         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <bsd/string.h>
 
 char	*ft_strcat(char *dest, char *src);
 
-int	main(void)
+int main(void)
 {
-	char *src;
-	char *dest;
-	char *ft_src;
-	char *ft_dest;
-	char *result;
-	char *ft_result;
+	char src[50];
+	char src1[50];
+	char src2[50];
+	char src3[50];
+	char src4[] = "defghijklm";
+	char src5[] = { 'a', -10, 'c', '\0' };
 
-	src = calloc(7, sizeof(char));
-	dest = calloc(12, sizeof(char));
-	ft_src = calloc(7, sizeof(char));
-	ft_dest = calloc(12, sizeof(char));
-	strcpy(src, "galera");
-	strcpy(dest, "alo ");
-	strcpy(ft_src, "galera");
-	strcpy(ft_dest, "alo ");
-	result = strcat(dest, src);
-	ft_result = ft_strcat(ft_dest, ft_src);
-	if (ft_dest != ft_result)
-		printf("KO, return value of ft_strcar is different of ft_dest. ft_strcar=%p ft_dest=%p\n", ft_result, ft_dest);
-	else if (strcmp(result, ft_result) != 0)
-		printf("KO, value returned from strcmp with ft_strcat and strcat is different of zero(%d).\n", strcmp(result, ft_result));
+	strcpy(src, "abc");
+	strcpy(src1, "abc");
+	strcpy(src2, "abc");
+	strcpy(src3, "abc");
+
+	printf("Test1:\n");
+	printf("Expected:\n");
+	printf("%s\n", strcat(src1, src4));
+	printf("Output:\n");
+	printf("%s\n", ft_strcat(src, src4));
+	printf("\n");
+	printf("Test2:\n");
+	printf("Expected:\n");
+	printf("%s\n", strcat(src3, src5));
+	printf("Output:\n");
+	printf("%s\n", ft_strcat(src2, src5));
+
+	if (
+		strcmp(src, src1) == 0
+		&& strcmp(src2, src3) == 0
+	)
+	{
+		printf("OK!");
+	}
 	else
-		printf("OK.\nresult: %s\n", ft_result);
+	{
+		printf("KO!");
+	}
+
 	return (0);
 }
