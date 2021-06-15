@@ -6,7 +6,7 @@ char	*ft_strstr(char *str, char *to_find);
 int main(void)
 {
 	char str[] = "alguma coisa";
-	char to_find_1[] = "coisa";
+	char to_find_1[] = "coi";
 	char to_find_2[] = "coisaaaaa";
 
 	printf("%s\n", strstr(str, ""));

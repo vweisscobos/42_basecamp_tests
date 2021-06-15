@@ -42,5 +42,17 @@ int main(void)
 	printf("Output:\n");
 	printf("%d", ft_atoi(c));
 	printf("\n");
+	c = "    ---12+-aaaa";
+	printf("str:\n%s\n", c);
+	printf("Expected:\n-12\n");
+	printf("Output:\n");
+	printf("%d", ft_atoi(c));
+	printf("\n");
+	c = "    ---12  334";
+	printf("str:\n%s\n", c);
+	printf("Expected:\n-12\n");
+	printf("Output:\n");
+	printf("%d", ft_atoi(c));
+	printf("\n");
 	return (0);
 }

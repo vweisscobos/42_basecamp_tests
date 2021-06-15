@@ -39,3 +39,8 @@ find $1 -type f -not -wholename "*git*" | while read line; do
 		echo "$line shouldnt be here"
 	fi
 done
+echo "Checking for forbidden libs and functions..."
+git grep -E --files-with-matches 'printf|stdio.h'
+echo "Checking for uncomitted changes..."
+git status - s
+echo "Checking for commited changes that were not pushed..."

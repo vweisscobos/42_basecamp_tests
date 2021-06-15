@@ -1,13 +1,9 @@
 files=(
-	"ex00/ft_strcmp.c"
-	"ex01/ft_strncmp.c"
-	"ex02/ft_strcat.c"
-	"ex03/ft_strncat.c"
-	"ex04/ft_strstr.c"
+	"ex00/ft_strlen.c"                     
 )
 
 curr_path=$(realpath $0 | sed "s/\/run.sh$//")
-echo "Testing project C03"
+echo "Testing project C04"
 echo
 for f in ${files[@]}
 do 
@@ -17,7 +13,7 @@ do
 	echo "Running Norminette..." 
 	norminette -R CheckForbiddenSourceHeader $file
 	echo "Compiling $file..."
-	gcc -Wall -Wextra -Werror $file "$curr_path/$ex.c" -o "$curr_path/a.out"
+	gcc -Wall -Wextra -Werror -lbsd $file "$curr_path/$ex.c" -o "$curr_path/a.out"
 	echo "Tests result:"
 	$curr_path/a.out
 	echo
