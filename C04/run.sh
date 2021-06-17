@@ -44,3 +44,4 @@ git grep -E --files-with-matches 'printf|stdio.h'
 echo "Checking for uncomitted changes..."
 git status - s
 echo "Checking for commited changes that were not pushed..."
+git log --oneline

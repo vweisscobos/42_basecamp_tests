@@ -7,7 +7,7 @@ int main(void)
 	// char str[] = "teste";
 	// char str2[] = "ABXZ-";
 
-	if (ft_str_is_alpha("") == 1 && ft_str_is_alpha("a1") == 0)
+	if (ft_str_is_alpha("abcde") == 1 && ft_str_is_alpha("a1") == 0)
 	{
 		printf("OK!");
 	}
